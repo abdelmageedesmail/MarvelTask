@@ -25,6 +25,12 @@ android {
         }
     }
 
+    externalNativeBuild {
+        cmake {
+            path("src/cpp/CMakeLists.txt")
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -52,6 +58,7 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+    ndkVersion = "28.0.12674087 rc2"
 }
 
 dependencies {
@@ -83,14 +90,20 @@ dependencies {
 
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
 
+    implementation("me.onebone:toolbar-compose:2.3.5")
 
     implementation(libs.hilt.android)
+    implementation(libs.volley)
+    implementation(libs.androidx.material3.android)
     kapt(libs.hilt.android.compiler)
     implementation(libs.androidx.hilt.navigation.compose)
 
     implementation(libs.androidx.constraintlayout.compose)
 
-    implementation ("androidx.graphics:graphics-shapes:1.0.1")
+    implementation("com.google.code.gson:gson:2.10.1")
+
+    implementation(libs.androidx.paging.runtime.ktx)
+    implementation(libs.androidx.paging.compose)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

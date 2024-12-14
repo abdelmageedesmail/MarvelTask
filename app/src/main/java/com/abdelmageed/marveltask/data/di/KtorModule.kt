@@ -1,7 +1,6 @@
 package com.abdelmageed.marveltask.data.di
 
 import android.util.Log
-import com.abdelmageed.marveltask.utils.ConstantsUrls
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -28,6 +27,13 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object KtorModule {
+
+    init {
+        System.loadLibrary("native-lib")
+    }
+
+    private external fun getBaseUrl(): String
+
     @Provides
     @Singleton
     fun provideHttpClient(): HttpClient {
@@ -63,7 +69,7 @@ object KtorModule {
             }
 
             install(DefaultRequest) {
-                url(ConstantsUrls.baseUrl)
+                url(getBaseUrl())
                 header(HttpHeaders.ContentType, ContentType.Application.Json)
             }
 

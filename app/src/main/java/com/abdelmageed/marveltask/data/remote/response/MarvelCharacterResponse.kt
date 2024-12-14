@@ -77,7 +77,7 @@ data class Data(
     val offset: Int? = null,
     val limit: Int? = null,
     val count: Int? = null,
-    val results: List<ResultsItem?>? = null
+    val results: List<ResultsItem> = emptyList()
 )
 
 @Serializable
