@@ -23,7 +23,7 @@ import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.abdelmageed.marveltask.ui.theme.ComposeLoadingAnimationsTheme
+import com.abdelmageed.marveltask.ui.theme.MarvelTaskTheme
 
 private const val PADDING_PERCENTAGE_OUTER_CIRCLE = 0.15f
 private const val PADDING_PERCENTAGE_INNER_CIRCLE = 0.3f
@@ -91,7 +91,7 @@ fun TripleOrbitLoadingAnimation(modifier: Modifier = Modifier) {
 
 @Composable
 fun TripleOrbitLoadingAnimationPreview(isLoading: Boolean) {
-    ComposeLoadingAnimationsTheme {
+    MarvelTaskTheme {
         Log.e("isLoadingDetails", "$isLoading")
         if (isLoading)
             TripleOrbitLoadingAnimation(
